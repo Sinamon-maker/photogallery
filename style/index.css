@@ -1,0 +1,201 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #c0f0f0;
+  z-index: 10;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__login-button {
+  display: block;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("../img/login.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 35px;
+  height: 30px;
+}
+
+.header__login-img {
+  display: block;
+}
+
+.main {
+  padding-top: 62px;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.card__author {
+  position: absolute;
+  display: block;
+  top: 5px;
+  left: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card__download {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  border-radius: 50%;
+}
+
+.card__download,
+.photo__download {
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url("../img/download.svg");
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.card:hover .card__author,
+.card:hover .card__download {
+  opacity: 1;
+}
+
+.photo {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.photo__wrapper {
+  width: max-content;
+  display: grid;
+  max-width: 100%;
+  grid-template-areas:
+    "photo photo"
+    "author controls";
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.photo__author {
+  display: flex;
+  gap: 15px;
+}
+
+.photo__picture {
+  justify-self: center;
+  grid-area: photo;
+}
+
+.photo__author {
+  grid-area: author;
+}
+
+.photo__control {
+  grid-area: controls;
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+  gap: 15px;
+}
+
+.card__photo-like_user {
+}
+
+.card__photo-like {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  background-color: transparent;
+  background-image: url("../img/like.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  aspect-ratio: 1/1;
+  border: none;
+  color: #fff;
+  line-height: 1;
+  padding: 5px 10px 0;
+}
+
+.photo__like {
+  background-color: transparent;
+  background-image: url("../img/like.svg");
+  background-size: 20px;
+  background-position: left 3px center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 30px;
+  cursor: pointer;
+  padding-left: 30px;
+  border: 1px solid #ccc;
+}
+
+.photo__like_o {
+  background-image: url("../img/o-like.svg");
+}
+
+@media (max-width: 480px) {
+  .photo__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "controls"
+      "author";
+  }
+}
